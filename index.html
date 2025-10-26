@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Login • Smart Attendance</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+  <div class="center-wrap">
+    <div class="card-auth">
+      <h2>Welcome back</h2>
+      <p class="muted">Sign in to manage attendance</p>
+      <input class="input" id="loginEmail" type="email" placeholder="Email">
+      <input class="input" id="loginPassword" type="password" placeholder="Password">
+      <select class="select" id="loginRole">
+        <option value="employee">Employee</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button class="btn" onclick="login()">Sign In</button>
+      <p style="margin-top:10px">No account? <a class="link" href="signup.html">Create one</a></p>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+</body>
+</html>

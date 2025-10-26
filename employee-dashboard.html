@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Employee Dashboard • Smart Attendance</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">🕒 AttendanceHub</div>
+    <ul class="nav">
+      <li><a href="#" class="active" data-target="e-dashboard">🏠 Dashboard</a></li>
+      <li><a href="#" data-target="e-attendance">🕒 Attendance</a></li>
+      <li><a href="#" data-target="e-leave">📝 Leave Request</a></li>
+      <li><a href="#" data-target="e-profile">👤 Profile</a></li>
+    </ul>
+    <div class="spacer"></div>
+    <div class="logout" onclick="logout()">🚪 Logout</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="top-left">
+        <button class="icon-btn" onclick="toggleSide()">☰</button>
+        <h1 id="helloUser">Welcome</h1>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" onclick="toggleTheme()">🌗</button>
+      </div>
+    </div>
+
+    <!-- SECTION: Dashboard -->
+    <section id="e-dashboard" class="section active">
+      <div class="grid kpis">
+        <div class="card"><h3>Today</h3><div id="todayStatus" class="big">Not checked in</div></div>
+        <div class="card"><h3>Check-In</h3><div id="checkInTime" class="big">--:--</div></div>
+        <div class="card"><h3>Check-Out</h3><div id="checkOutTime" class="big">--:--</div></div>
+        <div class="card"><h3>This Week</h3><div id="weekHours" class="big">0 h</div></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="row">
+          <button id="checkInBtn" class="btn-sm" onclick="empCheckIn()">✅ Check-In</button>
+          <button id="checkOutBtn" class="btn-sm btn-outline" onclick="empCheckOut()">⏹️ Check-Out</button>
+        </div>
+        <p style="color:var(--text-muted);margin-top:8px">Smart reminder: Check-in by 10:00 AM, check-out by 8:00 PM.</p>
+      </div>
+    </section>
+
+    <!-- SECTION: Attendance -->
+    <section id="e-attendance" class="section">
+      <div class="card">
+        <h3>My Attendance History</h3>
+        <div class="row">
+          <input class="input" type="date" id="empFrom">
+          <input class="input" type="date" id="empTo">
+          <button class="btn-sm btn-outline" onclick="renderEmpAttendance()">Apply</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Check-In</th><th>Check-Out</th><th>Total (h)</th></tr></thead>
+            <tbody id="empAttendanceTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Leave -->
+    <section id="e-leave" class="section">
+      <div class="card">
+        <h3>Request Leave</h3>
+        <div class="row">
+          <input class="input" id="leaveReason" placeholder="Reason">
+          <input class="input" type="date" id="leaveDate">
+          <button class="btn-sm" onclick="submitLeave()">Submit</button>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>My Leave Requests</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Reason</th><th>Status</th></tr></thead>
+            <tbody id="empLeavesTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Profile -->
+    <section id="e-profile" class="section">
+      <div class="card">
+        <h3>Profile & Settings</h3>
+        <div class="row">
+          <input class="input" id="profName" placeholder="Full name">
+          <input class="input" id="profPassword" type="password" placeholder="New password (optional)">
+          <button class="btn-sm" onclick="saveProfile()">Save</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

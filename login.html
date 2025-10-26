@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Smart Employee Attendance</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Welcome Back 👋</h2>
+      <p style="color:gray; font-size:14px; margin-bottom:20px;">Login to manage your attendance</p>
+
+      <input type="email" id="loginEmail" placeholder="Email Address" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+
+      <label for="roleSelect" style="display:block; text-align:left; font-size:14px; color:#555; margin-top:10px;">Login As:</label>
+      <select id="roleSelect">
+        <option value="employee">Employee</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button onclick="login()">Login</button>
+
+      <div style="margin-top:15px;">
+        <a href="signup.html">Don’t have an account? <b>Sign up</b></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Auto-create admin account if not exists
+    window.onload = function() {
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      if (!users.some(u => u.email === "admin@company.com")) {
+        users.push({ name: "Admin", email: "admin@company.com", password: "admin123", role: "admin" });
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sign Up • Smart Attendance</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+  <div class="center-wrap">
+    <div class="card-auth">
+      <h2>Create account</h2>
+      <p class="muted">Employees only. Admin is pre-configured.</p>
+      <input class="input" id="signupName" placeholder="Full name">
+      <input class="input" id="signupEmail" type="email" placeholder="Work email">
+      <input class="input" id="signupPassword" type="password" placeholder="Password">
+      <button class="btn" onclick="signup()">Create Account</button>
+      <p style="margin-top:10px">Already registered? <a class="link" href="index.html">Sign in</a></p>
+      <p id="signupError" class="error"></p>
+    </div>
+  </div>
+</body>
+</html>
