@@ -27,17 +27,18 @@ Admin dashboard contains attendance list, leave requests, profile management
 Employee dashboard contains attendance, leave request submission, profile details
 
 Folder Structure
-frontend-attendance/
-│
-├── index.html          # Optional landing page
-├── login.html          # Login page
-├── signup.html         # Signup page
-├── dashboard.html      # Dashboard for admin/employee
-├── css/
-│   └── style.css       # Styles for all pages
-├── js/
-│   └── script.js       # Handles login logic and role-based redirection
-└── README.md           # This file
+frontend-attendance
+index.html          # Optional landing page
+login.html          # Login page
+signup.html         # Signup page
+dashboard.html      # Dashboard for admin/employee
+
+css
+style.css       # Styles for all pages
+
+js
+script.js       # Handles login logic and role-based redirection
+README.md           # This file
 
 How to Run
 Clone the repository or download the project folder.
